@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roger Ricardo — Press Kit</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0906;
+    --bg-alt: #151009;
+    --bg-card: #1a140c;
+    --gold-1: #e3b455;
+    --gold-2: #b9822a;
+    --amber: #e8891f;
+    --text: #f3ecdd;
+    --text-muted: #a99a83;
+    --line: #2e2417;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    letter-spacing:0.005em;
+    text-transform:uppercase;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  @media(max-width:640px){ .wrap{ padding:0 20px; } }
+
+  /* ---------- string divider (signature element) ---------- */
+  .strings{
+    height:64px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    align-items:flex-start;
+    overflow:hidden;
+  }
+  .strings span{
+    width:1px;
+    height:100%;
+    background:linear-gradient(to bottom, transparent, var(--gold-2), transparent);
+    opacity:0.55;
+    transform-origin:top center;
+    animation:pluck 3.4s ease-in-out infinite;
+  }
+  .strings span:nth-child(1){ animation-delay:0s; }
+  .strings span:nth-child(2){ animation-delay:0.3s; height:70%; }
+  .strings span:nth-child(3){ animation-delay:0.6s; }
+  .strings span:nth-child(4){ animation-delay:0.9s; height:55%; }
+  .strings span:nth-child(5){ animation-delay:1.2s; }
+  .strings span:nth-child(6){ animation-delay:1.5s; height:70%; }
+
+  @keyframes pluck{
+    0%, 100%{ transform:scaleX(1); }
+    50%{ transform:scaleX(2.5); opacity:0.9; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .strings span{ animation:none; }
+  }
+
+  /* ---------- header / nav ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    background:linear-gradient(to bottom, rgba(11,9,6,0.92), rgba(11,9,6,0));
+    backdrop-filter:blur(2px);
+  }
+  header .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Bebas Neue', sans-serif;
+    font-size:1.3rem;
+    letter-spacing:0.06em;
+  }
+  header .brand img{ height:34px; width:auto; }
+  header nav{ display:flex; gap:28px; }
+  header nav a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    transition:color 0.2s;
+  }
+  header nav a:hover{ color:var(--gold-1); }
+  header nav a:focus-visible, a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+  @media(max-width:720px){ header nav{ display:none; } }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:#000;
+  }
+  .hero-img{
+    position:absolute;
+    inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:50% 15%;
+    opacity:0.92;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(to top, var(--bg) 2%, rgba(11,9,6,0.35) 42%, rgba(11,9,6,0.05) 65%),
+      linear-gradient(to right, rgba(11,9,6,0.55) 0%, rgba(11,9,6,0) 45%);
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:0 32px 72px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:0.75rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold-1);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px; height:1px;
+    background:var(--gold-1);
+  }
+  .hero h1{
+    font-size:clamp(3.6rem, 13vw, 9.5rem);
+    line-height:0.85;
+    background:linear-gradient(180deg, #f6dfa4 0%, var(--gold-1) 45%, var(--gold-2) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero-tagline{
+    max-width:520px;
+    font-size:1.15rem;
+    font-weight:500;
+    color:var(--text-muted);
+    margin-top:18px;
+    line-height:1.6;
+  }
+  .hero-cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-top:34px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 26px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    border-radius:2px;
+    transition:transform 0.2s, background 0.2s, border-color 0.2s;
+  }
+  .btn-primary{
+    background:linear-gradient(120deg, var(--gold-1), var(--gold-2));
+    color:#1a1206;
+    font-weight:500;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-ghost{
+    border:1px solid var(--line);
+    color:var(--text);
+  }
+  .btn-ghost:hover{ border-color:var(--gold-1); color:var(--gold-1); }
+
+  /* ---------- sections generic ---------- */
+  section{ padding:96px 0; position:relative; }
+  .section-head{ margin-bottom:52px; max-width:640px; }
+  .section-head .eyebrow::before{ background:var(--gold-2); }
+  .section-head h2{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    color:var(--text);
+  }
+  .section-head p{
+    color:var(--text-muted);
+    margin-top:14px;
+    line-height:1.7;
+    font-size:1.02rem;
+  }
+
+  /* ---------- bio / timeline ---------- */
+  .bio-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+  }
+  @media(max-width:860px){ .bio-grid{ grid-template-columns:1fr; } }
+
+  .bio-text p{
+    color:var(--text-muted);
+    line-height:1.85;
+    margin-bottom:18px;
+    font-size:1rem;
+  }
+  .bio-text strong{ color:var(--text); font-weight:500; }
+
+  .timeline{
+    position:relative;
+    padding-left:34px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:1px;
+    background:linear-gradient(to bottom, var(--gold-1), var(--line) 90%);
+  }
+  .t-item{ position:relative; padding-bottom:38px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-34px; top:4px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--gold-1);
+  }
+  .t-item .t-years{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--gold-1);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .t-item h3{
+    font-size:1.5rem;
+    margin-top:4px;
+    color:var(--text);
+    letter-spacing:0.01em;
+  }
+  .t-item p{
+    color:var(--text-muted);
+    font-size:0.92rem;
+    margin-top:4px;
+    line-height:1.6;
+  }
+
+  /* ---------- repertoire tags ---------- */
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .tag{
+    padding:10px 20px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .tag:hover{ border-color:var(--gold-1); color:var(--gold-1); }
+
+  /* ---------- formats ---------- */
+  .formats{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media(max-width:820px){ .formats{ grid-template-columns:1fr; } }
+  .format-card{
+    background:var(--bg-card);
+    padding:40px 32px;
+    transition:background 0.25s;
+  }
+  .format-card:hover{ background:#1f1810; }
+  .format-num{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--gold-2);
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+  }
+  .format-card h3{
+    font-size:2rem;
+    margin-top:14px;
+    color:var(--text);
+  }
+  .format-card p{
+    color:var(--text-muted);
+    margin-top:10px;
+    line-height:1.65;
+    font-size:0.93rem;
+  }
+
+  /* ---------- venues ---------- */
+  .venue-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px 24px;
+  }
+  @media(max-width:720px){ .venue-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media(max-width:460px){ .venue-grid{ grid-template-columns:1fr; } }
+  .venue{
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    color:var(--text-muted);
+    font-size:0.96rem;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .venue::before{
+    content:"—";
+    color:var(--gold-2);
+  }
+
+  /* ---------- gallery / photo strip ---------- */
+  .photo-strip{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:24px;
+    align-items:center;
+  }
+  @media(max-width:820px){ .photo-strip{ grid-template-columns:1fr; } }
+  .photo-strip img{
+    width:100%;
+    border-radius:2px;
+    filter:saturate(1.05);
+  }
+  .photo-note{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--text-muted);
+    letter-spacing:0.05em;
+    margin-top:12px;
+  }
+  .quote-block{
+    border-left:2px solid var(--gold-1);
+    padding-left:28px;
+  }
+  .quote-block p{
+    font-size:1.5rem;
+    line-height:1.4;
+    color:var(--text);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+  .quote-block span{
+    display:block;
+    margin-top:16px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--gold-1);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:radial-gradient(ellipse at 30% 20%, #241a0c 0%, var(--bg) 65%);
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media(max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:48px; } }
+  .contact h2{
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    line-height:0.95;
+  }
+  .contact-lead{
+    color:var(--text-muted);
+    margin-top:18px;
+    max-width:440px;
+    line-height:1.7;
+  }
+  .contact-list{ display:flex; flex-direction:column; gap:0; }
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-row:first-child{ border-top:1px solid var(--line); }
+  .contact-row .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+  }
+  .contact-row .value{
+    font-size:1.15rem;
+    color:var(--text);
+    font-weight:400;
+  }
+  .contact-row .value:hover{ color:var(--gold-1); }
+
+  footer{
+    padding:36px 0 48px;
+    text-align:center;
+  }
+  footer img{ height:26px; margin:0 auto 14px; opacity:0.85; }
+  footer p{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="logo.png" alt="">
+    <span>Roger&nbsp;Ricardo</span>
+  </div>
+  <nav>
+    <a href="#bio">Trajetória</a>
+    <a href="#formatos">Formatos</a>
+    <a href="#palcos">Palcos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="hero-img" src="roger-hero.png" alt="Roger Ricardo tocando violão em iluminação de palco">
+  <div class="hero-content">
+    <div class="wrap">
+      <p class="eyebrow">Press Kit · Voz e Violão</p>
+      <h1 class="display">ROGER<br>RICARDO</h1>
+      <p class="hero-tagline">15 anos de palco e repertório certeiro entre rock, pop, MPB e os maiores sucessos nacionais e internacionais. Do acústico à banda completa — o formato certo pra lotar qualquer casa.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contato">Contratar show</a>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@thecoveroger/videos" target="_blank" rel="noopener">Ver no YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="bio">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow mono">Trajetória</p>
+      <h2>Experiência que se vê no palco</h2>
+    </div>
+    <div class="bio-grid">
+      <div class="bio-text">
+        <p>São <strong>15 anos</strong> de estrada, desde o primeiro show em um evento sertanejo até hoje — tempo suficiente pra saber ler qualquer plateia e virar o clima da casa.</p>
+        <p>Passagem pelas duplas <strong>Ronald &amp; Roger</strong> e <strong>Jaque &amp; Roger</strong>, no sertanejo, e três anos na banda de rock <strong>Doppler Rox</strong> deram a Roger um repertório que não fica preso a um único gênero. Hoje, como <strong>Roger Ricardo</strong>, isso vira ecletismo: rock, pop, MPB e os maiores sucessos nacionais e internacionais, prontos pra qualquer tipo de evento.</p>
+        <p>Já rodou festas juninas, pubs, bares de rock e eventos de motoclube — e chega em cada casa sabendo exatamente qual formato de show vai funcionar melhor.</p>
+      </div>
+      <div class="timeline">
+        <div class="t-item">
+          <p class="t-years">~2 anos</p>
+          <h3>Ronald &amp; Roger</h3>
+          <p>Dupla sertaneja. Segunda voz e violão solo nas apresentações.</p>
+        </div>
+        <div class="t-item">
+          <p class="t-years">~3 anos</p>
+          <h3>Jaque &amp; Roger</h3>
+          <p>Dupla sertaneja, seguindo na estrada como voz e violão.</p>
+        </div>
+        <div class="t-item">
+          <p class="t-years">3 anos</p>
+          <h3>Doppler Rox</h3>
+          <p>Banda de rock — passagem por diversos eventos do circuito rock.</p>
+        </div>
+        <div class="t-item">
+          <p class="t-years">Atual</p>
+          <h3>Roger Ricardo — Solo</h3>
+          <p>Projeto solo em atividade até hoje, com repertório eclético.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow mono">Repertório</p>
+      <h2>Um show que não erra o público</h2>
+      <p>Repertório amplo o suficiente pra virar qualquer noite — moldado ao clima da casa e ao perfil de quem está na plateia.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Rock</span>
+      <span class="tag">Pop</span>
+      <span class="tag">MPB</span>
+      <span class="tag">Sertanejo</span>
+      <span class="tag">Sucessos Nacionais</span>
+      <span class="tag">Sucessos Internacionais</span>
+    </div>
+  </div>
+</section>
+
+<section id="formatos">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow mono">Formatos de show</p>
+      <h2>O formato certo pra cada palco</h2>
+      <p>Três configurações, três investimentos diferentes — escolha a que encaixa no seu evento e no seu orçamento.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="formats">
+      <div class="format-card">
+        <p class="format-num mono">01 — Acústico</p>
+        <h3>Voz e Violão</h3>
+        <p>Custo mais enxuto, montagem rápida e clima intimista — perfeito pra bares e restaurantes.</p>
+      </div>
+      <div class="format-card">
+        <p class="format-num mono">02 — Duo</p>
+        <h3>Voz, Violão e Violino</h3>
+        <p>Mesma praticidade do acústico, com uma camada sonora que eleva o nível do evento.</p>
+      </div>
+      <div class="format-card">
+        <p class="format-num mono">03 — Completo</p>
+        <h3>Banda Completa</h3>
+        <p>Energia de casa de show. Pra festa grande, pista cheia e evento que precisa entregar impacto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="palcos">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow mono">Onde já tocou</p>
+      <h2>Palco testado, casa aprovada</h2>
+    </div>
+    <div class="venue-grid">
+      <div class="venue">Festas Juninas — Embu Guaçu</div>
+      <div class="venue">Maracujá Pub</div>
+      <div class="venue">Relíquias Rock Bar</div>
+      <div class="venue">The Captain</div>
+      <div class="venue">Vellys Restaurante</div>
+      <div class="venue">O Corvo Bar</div>
+      <div class="venue">Rancho 47</div>
+      <div class="venue">Petisco's Beer</div>
+      <div class="venue">Mas Que Nachos</div>
+      <div class="venue">Juca Bar e Restaurante</div>
+      <div class="venue">Motoclube Bichos Grilo MC</div>
+      <div class="venue">Mirada Pub (atual Digo's Pub)</div>
+      <div class="venue">Cristão Rock Bar</div>
+      <div class="venue">Toca Rock Blues Bar</div>
+      <div class="venue">EcoJusa</div>
+      <div class="venue">Bigoderia</div>
+      <div class="venue">Violeta Bar e Restaurante</div>
+    </div>
+  </div>
+</section>
+
+<div class="strings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section>
+  <div class="wrap">
+    <div class="photo-strip">
+      <img src="roger-hero.png" alt="Roger Ricardo em performance, iluminação de palco em tom âmbar">
+      <div class="quote-block">
+        <p>“Música deixou de ser hobby e virou profissão.”</p>
+        <span>Roger Ricardo</span>
+      </div>
+    </div>
+    <p class="photo-note mono">Imagem em alta resolução disponível pra divulgação, sob demanda.</p>
+  </div>
+</section>
+
+<section id="contato" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow mono">Contato</p>
+        <h2 class="display">Fecha logo<br>a sua data</h2>
+        <p class="contact-lead">Agenda preenche rápido. Fale agora com a produção e garanta o formato certo pro seu evento.</p>
+        <div class="hero-cta" style="margin-top:32px;">
+          <a class="btn btn-primary" href="https://wa.me/5511941169984" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="label">Contratação</span>
+          <a class="value" href="tel:+5511941169984">(11) 94116-9984</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Produção</span>
+          <a class="value" href="tel:+5511934121551">(11) 93412-1551</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Instagram</span>
+          <a class="value" href="https://www.instagram.com/cantorrogerricardo" target="_blank" rel="noopener">@cantorrogerricardo</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">YouTube</span>
+          <a class="value" href="https://www.youtube.com/@thecoveroger/videos" target="_blank" rel="noopener">@thecoveroger</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="logo.png" alt="Roger Ricardo">
+  <p>Roger Ricardo · Press Kit 2026</p>
+</footer>
+
+</body>
+</html>
